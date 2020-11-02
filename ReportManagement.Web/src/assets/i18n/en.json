@@ -46,7 +46,9 @@
 
         "CARD_BODY_EMPLOYEE_NAME": "Employee Name",
         "CARD_BODY_DATE": "Date",
-        "CARD_BODY_SHOW_BTN": "Show"
+        "CARD_BODY_SHOW_BTN": "Show",
+        "CARD_PROMPT_YES": "Yes",
+        "CARD_PROMPT_NO": "No"
     },
 
     "FORM": {

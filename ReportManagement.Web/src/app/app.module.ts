@@ -29,6 +29,7 @@ import { UserModule } from './user/user.module';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { AdminModule } from './admin/admin.module';
 import { BroadcastMessageModule } from './broadcast-message/broadcast-message.module';
+import { LandingPageForDokoComponent } from './common/landing-page-for-doko/landing-page-for-doko.component';
 
 
 
@@ -38,6 +39,7 @@ import { BroadcastMessageModule } from './broadcast-message/broadcast-message.mo
     PageNotFoundComponent,
     LoginComponent,
     LandingPageComponent,
+    LandingPageForDokoComponent,
   ],
   imports: [
     UserModule,

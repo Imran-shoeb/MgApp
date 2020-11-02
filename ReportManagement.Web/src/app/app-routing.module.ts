@@ -3,12 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './common/page-not-found/page-not-found.component';
 import { LoginComponent } from './common/login/login.component';
 import { LandingPageComponent } from './common/landing-page/landing-page.component';
+import { LandingPageForDokoComponent } from './common/landing-page-for-doko/landing-page-for-doko.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing-page', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'landing-page', component: LandingPageComponent },
+  { path: 'landing-page-for-doko', component: LandingPageForDokoComponent },
 
   { path: '**', component: PageNotFoundComponent }
 ];
