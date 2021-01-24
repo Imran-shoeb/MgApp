@@ -29,7 +29,13 @@ import { UserModule } from './user/user.module';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { AdminModule } from './admin/admin.module';
 import { BroadcastMessageModule } from './broadcast-message/broadcast-message.module';
+
 import { LandingPageForDokoComponent } from './common/landing-page-for-doko/landing-page-for-doko.component';
+import { AppSelectionComponent } from './common/app-selection/app-selection.component';
+
+import { DocumentAppModule } from './document-app/document-app.module';
+import { InformationBoardModule } from './information-board/information-board.module';
+
 
 
 
@@ -40,14 +46,19 @@ import { LandingPageForDokoComponent } from './common/landing-page-for-doko/land
     LoginComponent,
     LandingPageComponent,
     LandingPageForDokoComponent,
+    AppSelectionComponent,
   ],
   imports: [
     UserModule,
     ReportModule,
     AdminModule,
     BroadcastMessageModule,
+    DocumentAppModule,
+    InformationBoardModule, // all the custom modules should imported before core modules
+
+
     BrowserModule,
-    AppRoutingModule,
+    AppRoutingModule, 
     FormsModule,
     ReactiveFormsModule,
     

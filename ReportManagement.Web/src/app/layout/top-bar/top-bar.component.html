@@ -1,10 +1,11 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light navbar-color">
-  <a class="navbar-brand" [routerLink]="'/report'">
+  <a class="navbar-brand" [routerLink]="'/information-board'">
     <img
       class="navbar-brand-logo"
       src="../../../assets/images/logo.png"
       alt="Company Logo"
-    /> <b> 株式会社盛武組</b>
+    />
+    <b> 株式会社盛武組</b>
   </a>
   <button
     class="navbar-toggler"
@@ -36,48 +37,157 @@
           <a class="dropdown-item" href="#">Another action</a>
         </div>
       </li> -->
-      <li class="nav-item ">
-        <a class="nav-link nav-link-item" *ngIf="commonService.roleMatch(['Admin'])" [routerLink]="'/admin'">{{'TOP_BAR.ADMIN' | translate}}<span class="sr-only">(current)</span></a>
-      </li>
-      <span class="btn-separator" *ngIf="commonService.roleMatch(['Admin'])"></span>
 
-      <li class="nav-item ">
-        <a class="nav-link nav-link-item" *ngIf="!commonService.roleMatch(['Shacho'])" [routerLink]="'/broadcast'">{{'TOP_BAR.HOME' | translate}}<span class="sr-only">(current)</span></a>
-      </li>
-      <span class="btn-separator" *ngIf="!commonService.roleMatch(['Shacho'])"></span>
-
-      <li class="nav-item ">
-        <a class="nav-link nav-link-item" *ngIf="!commonService.roleMatch(['Shacho'])" [routerLink]="'/report'">{{'TOP_BAR.MY_REPORT' | translate}}<span class="sr-only">(current)</span></a>
-      </li>
-      <span class="btn-separator" *ngIf="!commonService.roleMatch(['Shacho'])"></span>
-
-      <li class="nav-item ">
-        <a class="nav-link nav-link-item" *ngIf="commonService.roleMatch(['Shacho'])" [routerLink]="'/broadcast'">{{'TOP_BAR.BROADCAST' | translate}}<span class="sr-only">(current)</span></a>
-      </li>
-      <span class="btn-separator" *ngIf="commonService.roleMatch(['Shacho'])"></span>
+      <!-- top bar links will be visible based on app. here ng-container is used for separation. -->
 
       <li class="nav-item">
-        <a class="nav-link nav-link-item" *ngIf="!commonService.roleMatch(['Shacho'])" [routerLink]="'/report/create'">{{'TOP_BAR.CREATE_REPORT' | translate}}<span class="sr-only">(current)</span></a>
+        <div class="dropdown">
+          <button
+            type="button"
+            class="btn btn-success dropdown-toggle"
+            data-toggle="dropdown"
+          >
+            Apps
+          </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" routerLink="/broadcast"
+              >Report Management App</a
+            >
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" [routerLink]=""
+              >Attendance App</a
+            >
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" ref="http://153.126.193.223:5000/"
+              >Location App</a
+            >
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" routerLink="/document-app"
+              >Document App</a
+            >
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" [routerLink]=""
+              >Construction App</a
+            >
+          </div>
+        </div>
       </li>
-      <span class="btn-separator" *ngIf="!commonService.roleMatch(['Shacho'])"></span>
+      <li class="nav-item">
+        <a
+          class="nav-link nav-link-item"
+          
+          [routerLink]="'/information-board'"
+          >{{ "TOP_BAR.HOME" | translate
+          }}<span class="sr-only">(current)</span></a
+        >
+      </li>
+      <span
+        class="btn-separator"
+        *ngIf="!commonService.roleMatch(['Shacho'])"
+      ></span>
+      <ng-container *ngIf="!urlAppSelect">
+        <li class="nav-item">
+          <a
+            class="nav-link nav-link-item"
+            *ngIf="commonService.roleMatch(['Admin'])"
+            [routerLink]="'/admin'"
+            >{{ "TOP_BAR.ADMIN" | translate
+            }}<span class="sr-only">(current)</span></a
+          >
+        </li>
+        <span
+          class="btn-separator"
+          *ngIf="commonService.roleMatch(['Admin'])"
+        ></span>
+
+        <!-- <li class="nav-item">
+          <a
+            class="nav-link nav-link-item"
+            *ngIf="!commonService.roleMatch(['Shacho'])"
+            [routerLink]="'/information-board'"
+            >Information Board<span class="sr-only">(current)</span></a
+          >
+        </li> -->
+        <span
+          class="btn-separator"
+          *ngIf="!commonService.roleMatch(['Shacho'])"
+        ></span>
+
+        <li class="nav-item">
+          <a
+            class="nav-link nav-link-item"
+            *ngIf="!commonService.roleMatch(['Shacho'])"
+            [routerLink]="'/report'"
+            >{{ "TOP_BAR.MY_REPORT" | translate
+            }}<span class="sr-only">(current)</span></a
+          >
+        </li>
+        <span
+          class="btn-separator"
+          *ngIf="!commonService.roleMatch(['Shacho'])"
+        ></span>
+
+        <li class="nav-item">
+          <a
+            class="nav-link nav-link-item"
+            *ngIf="commonService.roleMatch(['Shacho'])"
+            [routerLink]="'/broadcast'"
+            >{{ "TOP_BAR.BROADCAST" | translate
+            }}<span class="sr-only">(current)</span></a
+          >
+        </li>
+        <span
+          class="btn-separator"
+          *ngIf="commonService.roleMatch(['Shacho'])"
+        ></span>
+
+        <li class="nav-item">
+          <a
+            class="nav-link nav-link-item"
+            *ngIf="!commonService.roleMatch(['Shacho'])"
+            [routerLink]="'/report/create'"
+            >{{ "TOP_BAR.CREATE_REPORT" | translate
+            }}<span class="sr-only">(current)</span></a
+          >
+        </li>
+        <span
+          class="btn-separator"
+          *ngIf="!commonService.roleMatch(['Shacho'])"
+        ></span>
+
+        <li class="nav-item">
+          <a
+            class="nav-link nav-link-item"
+            *ngIf="commonService.roleMatch(['Shacho', 'Admin'])"
+            [routerLink]="'/report/show'"
+            >{{ "TOP_BAR.SHOW_REPORT" | translate
+            }}<span class="sr-only">(current)</span></a
+          >
+        </li>
+        <span
+          class="btn-separator"
+          *ngIf="commonService.roleMatch(['Shacho', 'Admin'])"
+        ></span>
+      </ng-container>
+
 
       <li class="nav-item">
-        <a class="nav-link nav-link-item" *ngIf="commonService.roleMatch(['Shacho', 'Admin'])" [routerLink]="'/report/show'">{{'TOP_BAR.SHOW_REPORT' | translate}}<span class="sr-only">(current)</span></a>
+        <a class="nav-link nav-link-profile" [routerLink]="'/user'">
+          {{ userName }}</a
+        >
       </li>
-      <span class="btn-separator" *ngIf="commonService.roleMatch(['Shacho', 'Admin'])"></span>
 
-      <li class="nav-item">
-        <a class="nav-link nav-link-profile" [routerLink]="'/user'"> {{userName}}</a>
-      </li>
       
-      <li class="nav-item">
+
+      <!-- <li class="nav-item">
         <a class="btn btn-success" href="http://153.126.193.223:5000/">DOKO</a>
-      </li> 
+      </li>  -->
 
       <li class="nav-item">
-        <button type="button" class="btn btn-outline-info" (click)="onLogout()">{{'TOP_BAR.LOGOUT' | translate}}</button>
+        <button type="button" class="btn btn-outline-info" (click)="onLogout()">
+          {{ "TOP_BAR.LOGOUT" | translate }}
+        </button>
       </li>
-     
     </ul>
   </div>
 </nav>

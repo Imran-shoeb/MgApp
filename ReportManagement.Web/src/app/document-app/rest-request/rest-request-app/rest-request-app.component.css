@@ -1,0 +1,16 @@
+.content-body {
+    padding: 40px 15px;
+    text-align: center;
+  }
+  .content {
+    margin: auto;
+    width: 300px;
+    padding-top: 40px;
+  }
+  .content .btn {
+    margin-right: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+  }
+  

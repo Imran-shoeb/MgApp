@@ -4,6 +4,7 @@ import { PageNotFoundComponent } from './common/page-not-found/page-not-found.co
 import { LoginComponent } from './common/login/login.component';
 import { LandingPageComponent } from './common/landing-page/landing-page.component';
 import { LandingPageForDokoComponent } from './common/landing-page-for-doko/landing-page-for-doko.component';
+import { AppSelectionComponent } from './common/app-selection/app-selection.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'landing-page', component: LandingPageComponent },
   { path: 'landing-page-for-doko', component: LandingPageForDokoComponent },
+  { path: 'app-selection', component: AppSelectionComponent },
 
   { path: '**', component: PageNotFoundComponent }
 ];
